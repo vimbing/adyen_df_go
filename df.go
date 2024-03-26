@@ -26,7 +26,6 @@ func (f *Fingerprinter) rJust(str string, lenght int, char rune) string {
 
 func (f *Fingerprinter) padString(str string, num int) string {
 	paddedString := f.rJust(str, num, '0')
-	fmt.Printf("paddedString: %v\n", paddedString)
 
 	if len(paddedString) > num {
 		return paddedString[:num]
