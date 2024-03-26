@@ -45,17 +45,19 @@ func (f *Fingerprinter) getSuperCookies() string {
 }
 
 func (f *Fingerprinter) getEntropy() string {
-	// Idk what's that is supposed to do exactly, in this place useragent is already hashed, so it doesn't really check anything.
+	mobile := []string{"iPad", "iPhone", "iPod"}
 
-	// mobile := []string{"iPad", "iPhone", "iPod"}
-	// if slices.Contains(mobile, f.userAgent) {
-	// return "20"
-	// }
+	for _, mobileString := range mobile {
+		if strings.Contains(strings.ToLower(f.UserAgentString), strings.ToLower(mobileString)) {
+			return "20"
+		}
+	}
 
 	return "40"
 }
 
 func (f *Fingerprinter) GenerateFingerPrint() string {
+	entropy := f.getEntropy()
 	plugins := f.calculateMd5(f.PluginsString, f.Plugins)
 	nrOfPlugins := f.padString(fmt.Sprint(f.PluginCount), f.NrOfPlugins)
 	fonts := f.padString("", f.Fonts)
@@ -72,7 +74,6 @@ func (f *Fingerprinter) GenerateFingerPrint() string {
 	doNotTrack := f.calculateMd5(f.DoNotTrackString, f.DoNotTrack)
 	jsFonts := "iZCqnI4lsk"
 	webglFp := "fKkhnraRhX"
-	entropy := f.getEntropy()
 
 	if f.Verbose {
 		fmt.Printf("plugins: %v\n", plugins)
