@@ -1,6 +1,8 @@
 package adyendfgo
 
 type Fingerprinter struct {
+	// Use int in order to print all values
+	Verbose          bool
 	Plugins          int
 	NrOfPlugins      int
 	Fonts            int

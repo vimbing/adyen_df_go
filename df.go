@@ -75,23 +75,26 @@ func (f *Fingerprinter) GenerateFingerPrint() string {
 	webglFp := "fKkhnraRhX"
 	entropy := f.getEntropy()
 
-	fmt.Printf("plugins: %v\n", plugins)
-	fmt.Printf("nrOfPlugins: %v\n", nrOfPlugins)
-	fmt.Printf("fonts: %v\n", fonts)
-	fmt.Printf("nrOfFonts: %v\n", nrOfFonts)
-	fmt.Printf("timeZone: %v\n", timeZone)
-	fmt.Printf("video: %v\n", video)
-	fmt.Printf("superCookies: %v\n", superCookies)
-	fmt.Printf("userAgent: %v\n", userAgent)
-	fmt.Printf("mimeTypes: %v\n", mimeTypes)
-	fmt.Printf("nrOfMimetypes: %v\n", nrOfMimetypes)
-	fmt.Printf("canvas: %v\n", canvas)
-	fmt.Printf("cpuClass: %v\n", cpuClass)
-	fmt.Printf("platform: %v\n", platform)
-	fmt.Printf("doNotTrack: %v\n", doNotTrack)
-	fmt.Printf("jsFonts: %v\n", jsFonts)
-	fmt.Printf("webglFp: %v\n", webglFp)
-	fmt.Printf("entropy: %v\n", entropy)
+	if f.Verbose {
+		fmt.Printf("plugins: %v\n", plugins)
+		fmt.Printf("nrOfPlugins: %v\n", nrOfPlugins)
+		fmt.Printf("fonts: %v\n", fonts)
+		fmt.Printf("nrOfFonts: %v\n", nrOfFonts)
+		fmt.Printf("timeZone: %v\n", timeZone)
+		fmt.Printf("video: %v\n", video)
+		fmt.Printf("superCookies: %v\n", superCookies)
+		fmt.Printf("userAgent: %v\n", userAgent)
+		fmt.Printf("mimeTypes: %v\n", mimeTypes)
+		fmt.Printf("nrOfMimetypes: %v\n", nrOfMimetypes)
+		fmt.Printf("canvas: %v\n", canvas)
+		fmt.Printf("cpuClass: %v\n", cpuClass)
+		fmt.Printf("platform: %v\n", platform)
+		fmt.Printf("doNotTrack: %v\n", doNotTrack)
+		fmt.Printf("jsFonts: %v\n", jsFonts)
+		fmt.Printf("webglFp: %v\n", webglFp)
+		fmt.Printf("entropy: %v\n", entropy)
+
+	}
 
 	adyenFingerprint := fmt.Sprintf(
 		"%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s:%s",
